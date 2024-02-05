@@ -1,0 +1,46 @@
+Traceback (most recent call last):
+  File "C:\Anaconda\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Anaconda\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Anaconda\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Anaconda\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Anaconda\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Anaconda\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Anaconda\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Anaconda\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Initialize the Manager object
+km = pykobo.Manager(url=url_kobo, api_version=api_version, token=api_token)
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+Cell [1;32mIn[5], line 2[0m
+[0;32m      1[0m [38;5;66;03m# Initialize the Manager object[39;00m
+[1;32m----> 2[0m km [38;5;241m=[39m [43mpykobo[49m[38;5;241;43m.[39;49m[43mManager[49m[43m([49m[43murl[49m[38;5;241;43m=[39;49m[43murl_kobo[49m[43m,[49m[43m [49m[43mapi_version[49m[38;5;241;43m=[39;49m[43mapi_version[49m[43m,[49m[43m [49m[43mtoken[49m[38;5;241;43m=[39;49m[43mapi_token[49m[43m)[49m
+
+File [1;32mC:\Anaconda\lib\site-packages\pykobo\manager.py:11[0m, in [0;36mManager.__init__[1;34m(self, url, api_version, token)[0m
+[0;32m      9[0m [38;5;28;01mdef[39;00m [38;5;21m__init__[39m([38;5;28mself[39m, url: [38;5;28mstr[39m, api_version: [38;5;28mint[39m, token: [38;5;28mstr[39m) [38;5;241m-[39m[38;5;241m>[39m [38;5;28;01mNone[39;00m:
+[0;32m     10[0m     [38;5;28mself[39m[38;5;241m.[39murl [38;5;241m=[39m url[38;5;241m.[39mrstrip([38;5;124m"[39m[38;5;124m/[39m[38;5;124m"[39m)
+[1;32m---> 11[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mapi_version[49m [38;5;241m=[39m api_version
+[0;32m     12[0m     [38;5;28mself[39m[38;5;241m.[39mtoken [38;5;241m=[39m token
+[0;32m     13[0m     [38;5;28mself[39m[38;5;241m.[39mheaders [38;5;241m=[39m {[38;5;124m"[39m[38;5;124mAuthorization[39m[38;5;124m"[39m: [38;5;124mf[39m[38;5;124m"[39m[38;5;124mToken [39m[38;5;132;01m{[39;00mtoken[38;5;132;01m}[39;00m[38;5;124m"[39m}
+
+File [1;32mC:\Anaconda\lib\site-packages\pykobo\manager.py:23[0m, in [0;36mManager.api_version[1;34m(self, value)[0m
+[0;32m     20[0m [38;5;129m@api_version[39m[38;5;241m.[39msetter
+[0;32m     21[0m [38;5;28;01mdef[39;00m [38;5;21mapi_version[39m([38;5;28mself[39m, value):
+[0;32m     22[0m     [38;5;28;01mif[39;00m value [38;5;241m!=[39m [38;5;241m2[39m:
+[1;32m---> 23[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mThe value of [39m[38;5;124m'[39m[38;5;124mapi_version[39m[38;5;124m'[39m[38;5;124m has to be: 2.[39m[38;5;124m"[39m)
+[0;32m     24[0m     [38;5;28mself[39m[38;5;241m.[39m_api_version [38;5;241m=[39m value
+
+[1;31mValueError[0m: The value of 'api_version' has to be: 2.
+ValueError: The value of 'api_version' has to be: 2.
+
